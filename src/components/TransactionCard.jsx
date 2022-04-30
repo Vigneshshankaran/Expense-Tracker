@@ -1,0 +1,46 @@
+import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { Avatar } from "@material-ui/core";
+import Fade from "@material-ui/core/Fade";
+
+function TransactionCard({ transaction, deleteTransaction }) {
+  return (
+    <Fade in={true}>
+      <div className="transaction-card">
+        <div className="transaction-card-category">
+          <Avatar>
+            <img
+              src={"/images/icons/" + transaction.category + ".png"}
+              style={{ maxWidth: "100%", maxHeight: "100%" }}
+              alt="category icon"
+            />
+          </Avatar>
+          <p className="category-text">{transaction.category}</p>
+        </div>
+        <div className="transaction-card-text">
+          <p className="main-text">
+            {transaction.detail.slice(0, 40)}
+            <span>{transaction.detail.length > 40 ? "..." : " "}</span>
+          </p>
+          <p className="sub-text">
+            {new Date(transaction.date).toDateString()}
+          </p>
+        </div>
+        <h4 className={transaction.type}>&#x20b9; {transaction.amount}</h4>
+
+        <div className="delete-btn">
+          <IconButton
+            onClick={() => {
+              deleteTransaction(transaction._id);
+            }}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </div>
+      </div>
+    </Fade>
+  );
+}
+
+export default TransactionCard;
