@@ -15,7 +15,7 @@ function LandingPage() {
           </Link>
         </div>
       </div>
-      <div className="landing-bottom">&copy;Copyright 2022 Souvik Goon </div>
+      <div className="landing-bottom">&copy;Copyright 2022 Vignesh</div>
     </div>
   );
 }
